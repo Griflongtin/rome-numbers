@@ -7,48 +7,61 @@ var romeD = "D";
 var romeM = "M";
 
 function ones(number) {
-  if (number[0] <= 3) {
+  if (number <= 3) {
     return romeI.repeat(number);
-  }else if (number[0] <= 4) {
+  }else if (number <= 4) {
     return romeI + romeV;
 
-  }else if (number[0] <= 5){
+  }else if (number <= 5){
     return romeV;
 
-  }else if (number[0] <= 9){
-    var num = (number[0] - 5)
+  }else if (number <= 9){
+    var num = (number - 5)
     return romeV + romeI.repeat(num);
+  }else {
+    return "";
   }
 }
 
 function tens(number) {
+  if ((number >= 1) && (number <= 4)) {
+    return romeX.repeat(number);
 
-  if ((number[0] >= 1) && (number[0] <= 4)) {
-    return romeX.repeat(number[0]);
-  } else if (number[0] >= 5){
+  } else if (number >= 5){
     return romeL;
+  } else {
+    return "";
   }
 }
 
 function hundreds(number) {
-  if ((number[0] >= 1) && (number[0] <= 4)){
-    return romeC.repeat(number[0])
-  } else if (number[0] >= 5){
+  if ((number >= 1) && (number <= 4)) {
+    return romeC.repeat(number);
+  } else if (number >= 5){
     return romeD;
+  }else {
+    return "";
   }
 }
 
 function thousand(number) {
-  if ((number[0] >= 1) && (number[0] <= 4)){
-    return romeM.repeat(number[0]);
+  if ((number >= 1) && (number <= 4)) {
+      return romeM.repeat(number);
   }
 }
 
-function cool(input) {
-  for (var i = 0; i < input.length; i++) {
-    if(input[i] === 0){
-      input[0] = "-";
-    }
+function result(number){
+  debugger
+  if(number.length >= 4){
+    return thousand(number[0]) + hundreds(number[1]) + tens(number[2]) + ones(number[1]);
+  } else if(number.length >= 3){
+    return hundreds(number[0]) + tens(number[1]) + ones(number[2]);
+  } else if(number.length >= 2){
+    return tens(number[0]) + ones(number[1]);
+  }else if(number.length >= 1){
+    return ones(number[0]);
+  } else {
+    alert("WOAH");
   }
 }
 
@@ -60,6 +73,6 @@ $(function(){
     event.preventDefault();
     var input = $('#input').val();
 
-    $("#output").text(cool(input));
+    $("#output").text(result(input));
   });
 });
