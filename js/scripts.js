@@ -20,7 +20,7 @@ function ones(number) {
 
   }else if (number <= 8){
     var num = (number - 5)
-    return romeL + romeV.repeat(num);
+    return romeV + romeI.repeat(num);
   } else if (number = 9){
       return romeI + romeX;
   }
@@ -40,7 +40,7 @@ function tens(number) {
 
   } else if (number <= 8) {
     var num = (number - 5)
-    return romeX + romeL.repeat(num);
+    return romeL + romeX.repeat(num);
   }else if (number = 9){
     return romeX + romeC;
   }
