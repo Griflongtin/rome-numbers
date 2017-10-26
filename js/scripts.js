@@ -7,47 +7,70 @@ var romeD = "D";
 var romeM = "M";
 
 function ones(number) {
-  if (number <= 3) {
+  if (number <= 0) {
+    return "";
+  }else if (number <= 3) {
     return romeI.repeat(number);
+
   }else if (number <= 4) {
     return romeI + romeV;
 
   }else if (number <= 5){
     return romeV;
 
-  }else if (number <= 9){
+  }else if (number <= 8){
     var num = (number - 5)
-    return romeV + romeI.repeat(num);
-  }else {
-    return "";
+    return romeL + romeV.repeat(num);
+  } else if (number = 9){
+      return romeI + romeX;
   }
 }
 
 function tens(number) {
-  if ((number >= 1) && (number <= 4)) {
+  if (number <= 0) {
+    return "";
+  }else if ((number >= 1) && (number <= 3)) {
     return romeX.repeat(number);
 
-  } else if (number >= 5){
+  } else if (number <= 4) {
+    return romeX + romeL
+
+  } else if (number <= 5){
     return romeL;
-  } else {
-    return "";
+
+  } else if (number <= 8) {
+    var num = (number - 5)
+    return romeX + romeL.repeat(num);
+  }else if (number = 9){
+    return romeX + romeC;
   }
 }
 
 function hundreds(number) {
-  if ((number >= 1) && (number <= 4)) {
-    return romeC.repeat(number);
-  } else if (number >= 5){
-    return romeD;
-  }else {
+  if (number <= 0) {
     return "";
+  }else if (number <= 3) {
+    return romeC.repeat(number);
+
+  }else if (number <= 4) {
+    return romeC + romeD;
+
+  }else if (number <= 5){
+    return romeD;
+
+  }else if (number <= 8){
+    var num = (number - 5)
+    return romeD + romeC.repeat(num);
+  }else if (number = 9){
+    return romeC + romeM;
   }
 }
 
 function thousand(number) {
-  if ((number >= 1) && (number <= 4)) {
-      return romeM.repeat(number);
-  }
+  if ((number >= 1) && (number <= 3)) {
+    return romeM.repeat(number);
+  } else if (number >=4);
+    alert("Enter a smaller number!");
 }
 
 function result(number){
