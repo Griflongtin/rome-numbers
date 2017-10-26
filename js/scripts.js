@@ -31,14 +31,35 @@ function tens(number) {
 }
 
 function hundreds(number) {
-  
+  if ((number[0] >= 1) && (number[0] <= 4)){
+    return romeC.repeat(number[0])
+  } else if (number[0] >= 5){
+    return romeD;
+  }
 }
+
+function thousand(number) {
+  if ((number[0] >= 1) && (number[0] <= 4)){
+    return romeM.repeat(number[0]);
+  }
+}
+
+function cool(input) {
+  for (var i = 0; i < input.length; i++) {
+    if(input[i] === 0){
+      input[0] = "-";
+    }
+  }
+}
+
+
+
 $(function(){
   var numberRome = [];
   $('#form').submit(function(event){
     event.preventDefault();
     var input = $('#input').val();
 
-    $("#output").text(hundreds(input));
+    $("#output").text(cool(input));
   });
 });
