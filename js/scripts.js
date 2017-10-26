@@ -8,7 +8,7 @@ var romeM = "M";
 
 function ones(number) {
   if (number[0] <= 3) {
-    return romeI.repeat(number[0]);
+    return romeI.repeat(number);
   }else if (number[0] <= 4) {
     return romeI + romeV;
 
@@ -24,18 +24,21 @@ function ones(number) {
 function tens(number) {
 
   if ((number[0] >= 1) && (number[0] <= 4)) {
-    return romeX.repeat(number[0]) + ones(number[1]);
+    return romeX.repeat(number[0]);
   } else if (number[0] >= 5){
-    return romeL + ones(number[1]);
+    return romeL;
   }
 }
 
+function hundreds(number) {
+  
+}
 $(function(){
   var numberRome = [];
   $('#form').submit(function(event){
     event.preventDefault();
     var input = $('#input').val();
 
-    $("#output").text(tens(input));
+    $("#output").text(hundreds(input));
   });
 });
