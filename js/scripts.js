@@ -21,21 +21,21 @@ var number
 // }
 
 
-
+//CURRENTLY IF # IS 1 DIGIT//
 function ones(number) {
-  console.log(number[0]);
+  var numberRome = "I";
 
   if (number[0] <= 3) {
-    console.log("yes");
+    number[0]
+    return numberRome.repeat(number[0]);
   }else if (number[0] <= 4) {
-    console.log("maybe");
-    console.log(number);
   }else {
     console.log("no");
   }
 }
 
 $(function(){
+  var numberRome = [];
   $('#form').submit(function(event){
     event.preventDefault();
     var input = $('#input').val();
