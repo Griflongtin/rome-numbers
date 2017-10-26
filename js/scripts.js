@@ -74,7 +74,6 @@ function thousand(number) {
 }
 
 function result(number){
-  debugger
   if(number.length >= 4){
     return thousand(number[0]) + hundreds(number[1]) + tens(number[2]) + ones(number[1]);
   } else if(number.length >= 3){
